@@ -1,3 +1,12 @@
 body {
 	font-family: 'Orbitron', sans-serif;
+	background-color: #9FA1A3;
 }
+
+#clock-display {
+	color:  #73e600;
+	border-style: solid;
+	border-color:  #bfbfbf;
+}
+
+
