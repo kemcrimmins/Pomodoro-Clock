@@ -20,13 +20,13 @@ body {
 #minutes-display {
 	border-style: dashed;
 	text-align: center;
-	line-height: 125%;
+	line-height: 150%;
 }
 
 #seconds-display {
 	border-style: double;
 	text-align: center;
-	line-height: 125%
+	line-height: 150%
 }
 
 #button-display {
@@ -36,6 +36,7 @@ body {
 	width: 100%;
 }
 button {
+	font-size: 5em;
 	width: 33%;
 	height: 100%;
 	border-style: solid;
