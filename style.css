@@ -35,11 +35,20 @@ body {
 	height: 15%;
 	width: 100%;
 }
+
 button {
 	font-size: 5em;
 	width: 33%;
 	height: 100%;
 	border-style: solid;
+}
+
+#start-interface {
+	height: 100%;
+}
+
+.hidden {
+	display: none;
 }
 
 /*@media (max-width: 420px) {
