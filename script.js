@@ -1,6 +1,15 @@
 var minutesDisplay = document.querySelector('#minutes-display');
 var secondsDisplay = document.querySelector('#seconds-display');
 
+document.querySelector('#start-button').addEventListener('click', startTimer);
+document.querySelector('#increase-button').addEventListener('click', function() {
+	minutesDisplay.textContent = parseInt(minutesDisplay.textContent) + 5;
+});
+
+document.querySelector('#decrease-button').addEventListener('click', function (){
+	minutesDisplay.textContent = parseInt(minutesDisplay.textContent) - 5;
+});
+
 function startTimer() {
 	var pomodoroLengthInSeconds = parseInt(minutesDisplay.textContent) * 60;
 	timer(pomodoroLengthInSeconds);
@@ -36,7 +45,7 @@ function displayTimeLeft(secondsLeft) {
 	//document.title = minutes + ":" + seconds;
 }
 
-startTimer();
+//startTimer();
 
 /*----- Add Event Listeners Button Bindings ------*/
 
