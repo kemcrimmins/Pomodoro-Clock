@@ -27,10 +27,13 @@ function displayTimeLeft(secondsLeft) {
 	if (seconds < 10) {
 		seconds = '0' + seconds;
 	}
-	
+	if (minutes < 10) {
+		minutes = '0' + minutes;
+	}
+
 	minutesDisplay.textContent = minutes;
 	secondsDisplay.textContent = seconds;
-	document.title = minutes + ":" + seconds;
+	//document.title = minutes + ":" + seconds;
 }
 
 startTimer();
