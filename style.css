@@ -47,6 +47,10 @@ button {
 	height: 100%;
 }
 
+#reset-interface {
+	height: 100%;
+}
+
 .hidden {
 	display: none;
 }

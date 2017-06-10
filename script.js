@@ -45,6 +45,11 @@ function displayTimeLeft(secondsLeft) {
 	//document.title = minutes + ":" + seconds;
 }
 
+// TODO: changeDisplay using vanilla JS toggle
+// TODO: startBreakPeriod => calls timer; needs a toggle to know whether pomodoro or timer
+// TODO: resetPomodoro function
+// TODO: variable to store user's Pomodoro value for restart of Pomodoro after break
+
 //startTimer();
 
 /*----- Add Event Listeners Button Bindings ------*/
