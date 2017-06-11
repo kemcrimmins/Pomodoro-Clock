@@ -1,14 +1,16 @@
 var minutesDisplay = document.querySelector('#minutes-display');
 var secondsDisplay = document.querySelector('#seconds-display');
 
-document.querySelector('#start-button').addEventListener('click', startTimer);
-document.querySelector('#increase-button').addEventListener('click', function() {
-	minutesDisplay.textContent = parseInt(minutesDisplay.textContent) + 5;
-});
+(function setupButtons() {
+	document.querySelector('#start-button').addEventListener('click', startTimer);
+	document.querySelector('#increase-button').addEventListener('click', function() {
+		minutesDisplay.textContent = parseInt(minutesDisplay.textContent) + 5;
+	});
+	document.querySelector('#decrease-button').addEventListener('click', function (){
+		minutesDisplay.textContent = parseInt(minutesDisplay.textContent) - 5;
+	});
+})();
 
-document.querySelector('#decrease-button').addEventListener('click', function (){
-	minutesDisplay.textContent = parseInt(minutesDisplay.textContent) - 5;
-});
 
 function startTimer() {
 	var pomodoroLengthInSeconds = parseInt(minutesDisplay.textContent) * 60;
@@ -51,7 +53,6 @@ function displayTimeLeft(secondsLeft) {
 	//document.title = minutes + ":" + seconds;
 }
 
-// TODO: changeDisplay using vanilla JS toggle
 // TODO: startBreakPeriod => calls timer; needs a toggle to know whether pomodoro or timer
 // TODO: resetPomodoro function
 // TODO: variable to store user's Pomodoro value for restart of Pomodoro after break
