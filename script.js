@@ -12,7 +12,13 @@ document.querySelector('#decrease-button').addEventListener('click', function ()
 
 function startTimer() {
 	var pomodoroLengthInSeconds = parseInt(minutesDisplay.textContent) * 60;
+	changeInterface();
 	timer(pomodoroLengthInSeconds);
+}
+
+function changeInterface() {
+	document.getElementById('start-interface').classList.toggle('hidden');
+	document.getElementById('reset-interface').classList.toggle('hidden');
 }
 
 function timer(seconds) {

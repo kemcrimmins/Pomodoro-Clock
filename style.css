@@ -43,6 +43,10 @@ button {
 	border-style: solid;
 }
 
+#reset-button {
+	width: 100%;
+}
+
 #start-interface {
 	height: 100%;
 }
