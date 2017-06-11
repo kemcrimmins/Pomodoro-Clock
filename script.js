@@ -1,6 +1,7 @@
 var minutesDisplay = document.querySelector('#minutes-display');
 var secondsDisplay = document.querySelector('#seconds-display');
 var countdown;
+var breakTime = false;
 
 (function setupButtons() {
 	document.querySelector('#start-button').addEventListener('click', startTimer);
@@ -22,6 +23,8 @@ function startTimer() {
 }
 
 function resetTimer() {
+	console.log('resetting timer');
+	breakTime = false;
 	clearInterval(countdown);
 	minutesDisplay.textContent = '25';
 	secondsDisplay.textContent = '00';
@@ -33,6 +36,11 @@ function changeInterface() {
 	document.getElementById('reset-interface').classList.toggle('hidden');
 }
 
+function startBreakPeriod() {
+	breakTime = true;
+	timer(30);
+}
+
 function timer(seconds) {
 	var timeToStop = Date.now() + seconds * 1000;
 
@@ -40,7 +48,12 @@ function timer(seconds) {
 		var secondsLeft = Math.round((timeToStop - Date.now()) / 1000);
 
 		if (secondsLeft < 0) {
-			clearInterval(countdown)
+			clearInterval(countdown);
+			if (breakTime) {
+				resetTimer();
+			} else {
+				startBreakPeriod();
+			}
 			return;
 		}
 		displayTimeLeft(secondsLeft);
@@ -60,16 +73,8 @@ function displayTimeLeft(secondsLeft) {
 
 	minutesDisplay.textContent = minutes;
 	secondsDisplay.textContent = seconds;
-	//document.title = minutes + ":" + seconds;
 }
 
 // TODO: startBreakPeriod => calls timer; needs a toggle to know whether pomodoro or timer
-// TODO: resetPomodoro function
 // TODO: variable to store user's Pomodoro value for restart of Pomodoro after break
 
-//startTimer();
-
-/*----- Add Event Listeners Button Bindings ------*/
-
-
-/*----- Begin Button-Binding functions ---------*/
