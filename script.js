@@ -1,5 +1,6 @@
 var minutesDisplay = document.querySelector('#minutes-display');
 var secondsDisplay = document.querySelector('#seconds-display');
+var countdown;
 
 (function setupButtons() {
 	document.querySelector('#start-button').addEventListener('click', startTimer);
@@ -9,6 +10,8 @@ var secondsDisplay = document.querySelector('#seconds-display');
 	document.querySelector('#decrease-button').addEventListener('click', function (){
 		minutesDisplay.textContent = parseInt(minutesDisplay.textContent) - 5;
 	});
+
+	document.querySelector('#reset-button').addEventListener('click', resetTimer);
 })();
 
 
@@ -16,6 +19,13 @@ function startTimer() {
 	var pomodoroLengthInSeconds = parseInt(minutesDisplay.textContent) * 60;
 	changeInterface();
 	timer(pomodoroLengthInSeconds);
+}
+
+function resetTimer() {
+	clearInterval(countdown);
+	minutesDisplay.textContent = '25';
+	secondsDisplay.textContent = '00';
+	changeInterface();
 }
 
 function changeInterface() {
@@ -26,7 +36,7 @@ function changeInterface() {
 function timer(seconds) {
 	var timeToStop = Date.now() + seconds * 1000;
 
-	var countdown = setInterval(function () {
+	countdown = setInterval(function () {
 		var secondsLeft = Math.round((timeToStop - Date.now()) / 1000);
 
 		if (secondsLeft < 0) {
