@@ -26,12 +26,12 @@ body {
 #seconds-display {
 	border-style: double;
 	text-align: center;
-	line-height: 150%
+	line-height: 90%
 }
 
 #button-display {
 	border-style: dotted;
-	margin: 0 auto;
+	margin: 5em auto 0 auto;
 	height: 15%;
 	width: 100%;
 }
