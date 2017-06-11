@@ -1,3 +1,4 @@
+var clockDisplay = document.querySelector('#clock-display');
 var minutesDisplay = document.querySelector('#minutes-display');
 var secondsDisplay = document.querySelector('#seconds-display');
 var countdown;
@@ -23,7 +24,7 @@ function startTimer() {
 }
 
 function resetTimer() {
-	console.log('resetting timer');
+	clockDisplay.classList.remove('blink');
 	breakTime = false;
 	clearInterval(countdown);
 	minutesDisplay.textContent = '25';
@@ -38,6 +39,7 @@ function changeInterface() {
 
 function startBreakPeriod() {
 	breakTime = true;
+	clockDisplay.classList.add('blink');
 	timer(30);
 }
 
@@ -52,6 +54,7 @@ function timer(seconds) {
 			if (breakTime) {
 				resetTimer();
 			} else {
+
 				startBreakPeriod();
 			}
 			return;
@@ -75,6 +78,5 @@ function displayTimeLeft(secondsLeft) {
 	secondsDisplay.textContent = seconds;
 }
 
-// TODO: startBreakPeriod => calls timer; needs a toggle to know whether pomodoro or timer
 // TODO: variable to store user's Pomodoro value for restart of Pomodoro after break
 
