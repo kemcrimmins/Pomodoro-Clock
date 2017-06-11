@@ -10,7 +10,9 @@ var breakTime = false;
 		minutesDisplay.textContent = parseInt(minutesDisplay.textContent) + 5;
 	});
 	document.querySelector('#decrease-button').addEventListener('click', function (){
-		minutesDisplay.textContent = parseInt(minutesDisplay.textContent) - 5;
+		if (minutesDisplay.textContent > 5) {
+			minutesDisplay.textContent = parseInt(minutesDisplay.textContent) - 5;
+		}		
 	});
 
 	document.querySelector('#reset-button').addEventListener('click', resetTimer);
